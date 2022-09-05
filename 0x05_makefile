@@ -1,0 +1,44 @@
+### 基本語法
+```
+run:
+    python3 main.py
+
+clean:
+    python3 clean_tool.py
+```
+make run  會執行 python3 main.py
+make clean 會執行 python3 clean.py
+
+
+### 傳入環境變數
+
+
+
+以下工作上不一定用到, 但相關有時間興趣再請自行斟酌參考
+
+### 編譯binary相關
+gcc -o hello hello.c
+sleep 3
+./hello
+
+
+
+
+以下施工中還沒整理完, 不好意思QQ
+GPPPARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
+ASPARAMS = --32
+LDPARAMS = -melf_i386
+
+objects = loader.o kernel.o 
+
+%.o: %.cpp
+	g++ $(GPPPARAMS) -o $@ -c $<
+
+%.o: %.s
+	as $(ASPARAMS) -o $@ $<
+
+mykernel.bin: linker.ld $(objects)
+	ld $(LDPARAMS) -T $< -o $@ $(objects)
+
+install: mykernel.bin
+	sudo cp $< /boot/mykernel.bin
