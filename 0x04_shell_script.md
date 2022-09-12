@@ -46,8 +46,8 @@ sudo chmod +x test.sh
 echo "echo 'hello world' " >> test.sh
 ./test.sh
 ```
-以上是一個簡單的.sh示範
-等有空再補一個比較完整的程式碼上來
+預期會看到 hello world 出現在螢幕上
+我在工作上也有寫了一隻.sh, 用來把 grpcurl 的呼叫做成半自動化工具, 等修改成比較適合的程式碼再補充上來
 
 
 

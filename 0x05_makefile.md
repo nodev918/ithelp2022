@@ -11,20 +11,23 @@ make clean 會執行 python3 clean.py
 
 
 ### 傳入環境變數
+```
+run:
+	echo $(var)
+```
+輸入 make run var=hi
+預期會在畫面上看到hi, 表示成功把環境變數透過指令傳入給 Makefile了
 
-
-
-以下工作上不一定用到, 但相關有時間興趣再請自行斟酌參考
-
-### 編譯binary相關
+<br/><br/>
+以下工作上不一定用到但Makefile語法相關, 有時間再來補充解釋跟說明進來
+### C 語言編譯binary
 gcc -o hello hello.c
 sleep 3
 ./hello
 
+### C++ 編譯 Kernel OS 
+以下為了湊字數, 是C++編譯可執行檔的makefile, 參考價值還不錯但是目前有點離題, 先把程式碼放上來, 等有機會再補充解釋
 
-
-
-以下施工中還沒整理完, 不好意思QQ
 GPPPARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
 ASPARAMS = --32
 LDPARAMS = -melf_i386
